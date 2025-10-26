@@ -3,15 +3,15 @@
 <head>
     <link rel="icon" type="image/png" href="apple-logo.png?v=2">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Peacemaker
+    <title>Map
 
     </title>
 </head>
 <style>
 .tooltip-container {
     position: absolute;
-    top: 305px;
-    left: 335px;
+    top: 301px;
+    left: 255px;
     background-color: white;
     padding: 10px;
     border-radius: 10px;
@@ -25,10 +25,22 @@
    
     }
 
-   .info-box {
-            display: block;
-
+   #info-box {
+          
+            margin-left: 50px;
+            margin-top: 43px;
+            padding: 10px;
+            max-width: 320px;
+            height: 300px; 
+           
+            border: 2px solid black;
         }
+svg {
+    width: 500px;
+    
+}
+
+
 
 </style>
 
@@ -55,8 +67,21 @@ function setRed() {
   neustadt.style.fill = 'red';
   wunstorf.style.fill = 'red';
   springe.style.fill = 'red';
+  infobox.style.display = 'block';
+  infobox.innerHTML = `
+  <strong>AGS Stadtteam 145 – Region Süd-West</strong><br><br>
+  Zuständig für Arbeitgeber in den Umlandkommunen Barsinghausen, Garbsen, Laatzen, 
+  Neustadt am Rübenberge, Wunstorf und Springe.<br><br>
+  Das Team berät und unterstützt Arbeitgeber bei der Personalgewinnung, 
+  bereitet Förderleistungen vor und nimmt Stellenangebote auf.<br><br>
 
-  infobox.innerHTML = ` <strong>Team 145</strong> <br>Region Süd-West `;
+  <strong>Team 141</strong> – Förderberatung<br>
+  (Beschäftigtenförderung, Aufenthaltserlaubnis, Eingliederungszuschuss)<br><br>
+
+  <strong>Team 143</strong> – Personaldienstleister / Zeitarbeit
+`;
+
+infobox.style.height = '295px'
 }
 
 // Funktion: Alle wieder normal
@@ -67,7 +92,7 @@ function resetColor() {
   neustadt.style.fill = '';
   wunstorf.style.fill = '';
   springe.style.fill = '';
-
+  infobox.style.display = 'none';
   infobox.innerText = ``;
 }
 
@@ -104,6 +129,21 @@ document.getElementById('Hannover').addEventListener('mouseout', function() {
 
         document.getElementById('Hannover').addEventListener('mouseover', function() {
     document.querySelector('.tooltip-container').style.display = 'block';
+    infobox.innerHTML =  `
+      <strong>AGS Stadtteams Hannover</strong><br><br>
+      • <strong>Team 144</strong> + Reha / Schwerbehinderte (regionsweit tätig).<br><br>
+      
+      • <strong>Team 146</strong> + Ausbildungsakquisiteure (regionsweit tätig).<br><br>
+      Die Stadtteams beraten und unterstützen Arbeitgeber im Stadtgebiet bei der Gewinnung neuer Arbeitskräfte, 
+      bereiten Förderleistungen vor und nehmen Stellenangebote auf.
+<br><br>
+ • <strong>Team 141</strong> – Förderberatung<br>
+  (Beschäftigtenförderung, Aufenthaltserlaubnis, Eingliederungszuschuss)<br><br>
+
+   • <strong>Team 143</strong> – Personaldienstleister / Zeitarbeit
+    `;
+
+    infobox.style.height = '335px';
 });
 
 
@@ -113,7 +153,7 @@ document.getElementById('Hannover').addEventListener('mouseout', function() {
 
 </script>
 <body>
-
+<div class="flexbox" style="display: flex">
     <div class="tooltip-container">
         <span class="tooltip-trigger">Cityteam 144/146</span>
      
@@ -4809,12 +4849,12 @@ document.getElementById('Hannover').addEventListener('mouseout', function() {
     </g>
     </svg>
     
-    <br>  <br>  <br>  <br>  <br>  <br>  <br>
+    <br>  <br>  
 
-    <div class="info-box" id="info-box"> 
+    <span class="info-box" id="info-box" style="display: none;">  <br> </span>
        
     </div>
-
+</div>
 </body>
 <style>
  
